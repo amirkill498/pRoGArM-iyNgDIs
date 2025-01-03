@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>233</ID>
+      <Description>"ฟั่งชั้น เนียน BY : 4116CH"</Description>
+      <Options moHideChildren="1"/>
+      <Color>FF0000</Color>
+      <GroupHeader>1</GroupHeader>
+      <Hotkeys>
+        <Hotkey>
+          <Action>Toggle Activation</Action>
+          <Keys/>
+          <ID>0</ID>
+        </Hotkey>
+      </Hotkeys>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9</ID>
+          <Description>"มองชื่อ"</Description>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+Aobscan(_nametags, D9 80 80 00 00 00 8D 88 80 00 00 00 D9 41 08 DE D9 DF E0 F6 C4 41 ** ** D9 41 04 D9 41 0C )
+Registersymbol(enable_NamePlates)
+alloc(enable_NamePlates,4)
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+label(check)
+label(nametags)
+
+newmem:
+
+originalcode:
+db 8B 44 81 14 F6 40 06 01
+
+cmp byte ptr [enable_NamePlates],(int)1
+jne exit
+
+check:
+db 80 B8 8B 00 00 00 44
+jne exit
+
+nametags:
+db C6 40 06 01
+
+
+exit:
+jmp returnhere
+
+_nametags-A:
+jmp newmem
+nop
+nop
+nop
+returnhere:
+
+enable_NamePlates:
+dd 1
+
+[DISABLE]
+Aobscan(_nametags, D9 80 80 00 00 00 8D 88 80 00 00 00 D9 41 08 DE D9 DF E0 F6 C4 41 ** ** D9 41 04 D9 41 0C )
+Unregistersymbol(enable_NamePlates)
+dealloc(enable_NamePlates)
+dealloc(newmem)
+_nametags-A:
+db 8B 44 81 14 F6 40 06 01
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>137</ID>
+          <Description>"มองเลือด"</Description>
+          <Color>C400C4</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(espNew,C6 44 24 ? 00 ? 8? ? 0?)
+label(_esp)
+registersymbol(_esp)
+
+espNew:
+_esp:
+db C6 44 24 ? 01
+
+
+
+[DISABLE]
+dealloc(newmem)
+_esp:
+db C6 44 24 ? 00
+
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>78</ID>
+          <Description>"ไม่กะจาย"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(navygaming,48 E1 7A 3F 00 00 ?? ??)
+label(_navygaming)
+registersymbol(_navygaming)
+
+navygaming:
+_navygaming:
+
+originalcode:
+
+
+
+db 00 00 00 00 00 00 ?? ??
+
+[DISABLE]
+
+_navygaming:
+
+db 48 E1 7A 3F 00 00 ?? ??
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>75</ID>
+          <Description>"ลดดีด"</Description>
+          <Color>008000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+aobscan(navygaming,33 33 73 3F 00 00 D0 40)
+label(_navygaming)
+registersymbol(_navygaming)
+
+navygaming:
+_navygaming:
+
+originalcode:
+
+
+
+db 00 00 00 00 00 00 D0 40
+
+[DISABLE]
+
+_navygaming:
+
+db 33 33 73 3F 00 00 D0 40
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>62</ID>
+          <Description>"รีแม็ก"</Description>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,C7 47 30 02 00 00 00)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+
+navygaming9:
+_navygaming9:
+
+originalcode:
+
+
+db C7 47 30 01 00 00 00
+
+[DISABLE]
+_navygaming9:
+
+db C7 47 30 02 00 00 00
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>110</ID>
+          <Description>"กระสุนเร็ว"</Description>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+Aobscan(aob_bulletspeed,F3 0F 10 41 ? F3 0F 59 C8 F3 0F 11 4C 24 ?)
+label(_aob_bulletspeed)
+registersymbol(_aob_bulletspeed)
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [ecx+68],(float)20000
+
+originalcode:
+movss xmm0,[ecx+68]
+
+exit:
+jmp returnhere
+
+aob_bulletspeed:
+_aob_bulletspeed:
+jmp newmem
+nop
+returnhere:
+
+
+
+
+[DISABLE]
+_aob_bulletspeed:
+movss xmm0,[ecx+68]
+//Alt: db 8B 4A 7C 89 0C 24
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>124</ID>
+          <Description>"กระสุนไม่ตก"</Description>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+Aobscan(aob_bulletnodrop,F3 0F 10 40 ? F3 0F 10 A6 ? ? ? ?)
+label(_aob_bulletnodrop)
+registersymbol(_aob_bulletnodrop)
+alloc(newmem,2048)
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem:
+mov [eax+64],(float)0
+
+originalcode:
+movss xmm0,[eax+64]
+
+exit:
+jmp returnhere
+
+aob_bulletnodrop:
+_aob_bulletnodrop:
+jmp newmem
+nop
+returnhere:
+
+
+
+
+[DISABLE]
+Aobscan(aob_bulletnodrop,F3 0F 10 40 ? F3 0F 10 A6 ? ? ? ?)
+dealloc(newmem)
+_aob_bulletnodrop:
+movss xmm0,[eax+64]
+//Alt: db 8B 4A 7C 89 0C 24
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>142</ID>
+          <Description>"เก็บของไกล"</Description>
+          <Options moHideChildren="1"/>
+          <Color>FF00FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,00 00 80 40 0A D7 23)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+navygaming9:
+_navygaming9:
+
+
+[DISABLE]
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>143</ID>
+              <Description>"เก็บของไกล"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_navygaming9</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>144</ID>
+          <Description>"กระโดดสูง"</Description>
+          <Options moHideChildren="1"/>
+          <Color>FF00FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(Dx1s,C3 F5 1C 41 ??)
+label(_Dx1s)
+registersymbol(_Dx1s)
+
+Dx1s:
+_Dx1s:
+
+
+[DISABLE]
+
+
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>145</ID>
+              <Description>"กระโดดสูง"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_Dx1s</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>134</ID>
+      <Description>"✅  VIP Bypass 4116CH ✅"</Description>
+      <Options moHideChildren="1"/>
+      <Color>0000FF</Color>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+{$lua}
+showMessage(" BYPASS สำเร็จ");
+showMessage("ขอให้เล่นให้สนุก");
+showMessage("BY 4116CH");
+shellExecute('https://www.facebook.com/vzlomat.tailand')
+shellExecute('https://www.youtube.com/@CH-it5is')
+
+[DISABLE]
+</AssemblerScript>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>70</ID>
+          <Description>"ลูกเบ้น2 V1"</Description>
+          <Color>0080FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,B8 01 00 00 00 57 8B)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+
+navygaming9:
+_navygaming9:
+
+originalcode:
+
+
+db B8 02 00 00 00 57 8B
+
+[DISABLE]
+_navygaming9:
+
+db B8 01 00 00 00 57 8B
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>50</ID>
+          <Description>"ลุกเบ้น 2 V2"</Description>
+          <Color>0080FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,BF 01 00 00 00 0F 84)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+
+navygaming9:
+_navygaming9:
+
+originalcode:
+
+
+db BF 02 00 00 00 0F 84
+
+[DISABLE]
+_navygaming9:
+
+db BF 01 00 00 00 0F 84
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>71</ID>
+          <Description>"ลูกเบ้น20 V1"</Description>
+          <Color>0080FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,B8 01 00 00 00 57 8B)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+
+navygaming9:
+_navygaming9:
+
+originalcode:
+
+
+db B8 20 00 00 00 57 8B
+
+[DISABLE]
+_navygaming9:
+
+db B8 01 00 00 00 57 8B
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>53</ID>
+          <Description>"ลูกเบ้น 20 v2"</Description>
+          <Color>0080FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,BF 01 00 00 00 0F 84)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+
+navygaming9:
+_navygaming9:
+
+originalcode:
+
+
+db BF 20 00 00 00 0F 84
+
+[DISABLE]
+_navygaming9:
+
+db BF 01 00 00 00 0F 84
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>147</ID>
+          <Description>"ยิงรั่ว60"</Description>
+          <Options moHideChildren="1"/>
+          <Color>0000FF</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+
+
+aobscan(rtyreferfesfds,00 00 70 42 00 00 20 42)
+label(_rtyreferfesfds)
+registersymbol(_rtyreferfesfds)
+
+
+rtyreferfesfds:
+_rtyreferfesfds:
+
+
+
+
+[DISABLE]
+
+
+</AssemblerScript>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>148</ID>
+              <Description>"No description"</Description>
+              <VariableType>Float</VariableType>
+              <Address>_rtyreferfesfds</Address>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>230</ID>
+          <Description>"หมัดไซตามะ"</Description>
+          <Color>FF0080</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,B8 01 00 00 00 3B F8)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+
+navygaming9:
+_navygaming9:
+
+originalcode:
+
+
+db B8 99 19 00 00 3B F8
+
+[DISABLE]
+_navygaming9:
+
+db B8 01 00 00 00 3B F8
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>231</ID>
+          <Description>"หมัดไซตามะV.1"</Description>
+          <Color>FF0080</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,B8 01 00 00 00 57 8B)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+
+navygaming9:
+_navygaming9:
+
+originalcode:
+
+
+db B8 99 19 00 00 57 8B
+
+[DISABLE]
+_navygaming9:
+
+db B8 01 00 00 00 57 8B
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>232</ID>
+          <Description>"หมัดไซตามะV.2"</Description>
+          <Color>FF0080</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(navygaming9,BF 01 00 00 00 0F 84)
+label(_navygaming9)
+registersymbol(_navygaming9)
+
+
+navygaming9:
+_navygaming9:
+
+originalcode:
+
+
+db BF 99 19 00 00 0F 84
+
+[DISABLE]
+_navygaming9:
+
+db BF 01 00 00 00 0F 84
+</AssemblerScript>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>162</ID>
+          <Description>"🛩  กระสุนติดตาม  🛩"</Description>
+          <Options moHideChildren="1"/>
+          <Color>FF0000</Color>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>[ENABLE]
+aobscan(BungBen1STz,0A D7 23 3B)
+label(_BungBen1STz)
+registersymbol(_BungBen1STz)
+
+
+BungBen1STz:
+_BungBen1STz:
+
+originalcode:
+
+
+db 00 00 80 3F
+
+[DISABLE]
+_BungBen1STz:
+
+db 0A D7 23 3B
+</AssemblerScript>
+          <Hotkeys>
+            <Hotkey>
+              <Action>Activate</Action>
+              <Keys>
+                <Key>66</Key>
+              </Keys>
+              <ID>0</ID>
+            </Hotkey>
+          </Hotkeys>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
